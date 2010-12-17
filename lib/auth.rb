@@ -19,6 +19,10 @@ class Auth < Erector::Widget
           end
 
           input :type => 'submit', :value => 'Login'
+
+          div <<-EOF, :class => 'disclaimer'
+            I super promise I'm not logging your Instagram credentials.
+          EOF
         end
       end
     end      
