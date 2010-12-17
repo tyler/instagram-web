@@ -7,7 +7,6 @@ class Timeline < Erector::Widget
       body do
         div :id => 'timeline' do
           div :class => 'controls' do
-            span 'Currently logged in as: '
             span @user, :class => 'username'
             a 'Logout', :href => '/logout'
           end
