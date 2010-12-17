@@ -1,0 +1,13 @@
+This exists because I refuse to use my phone to view a photo feed when I'm sitting at my computer.
+
+# git clone http://github.com/tyler/instagram-web.git
+# cd instagram-web
+# bundle install
+# bundle exec -s thin
+
+It is important to use an EventMachine-based web server, as I use em-http to send requests to Instagram. Moreover, it is important to use Ruby 1.9, as I use fibers for sexier event-based codez.
+
+Lastly, if you don't want to go through the trouble of running this locally, you can just head over to http://insta.drmcawesome.com and use mine. :)
+
+
+-- Tyler
