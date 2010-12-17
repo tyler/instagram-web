@@ -31,6 +31,9 @@ body {
     display: inline-block;
     width: 306px;
 }
+.item .image img {
+    border: 0;
+}
 .item .meta {
     display: inline-block;
     vertical-align: top;
