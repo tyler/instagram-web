@@ -1,6 +1,3 @@
-body {
-  background: #F2F2F2;
-}
 .controls {
   text-align: right;
   height: 20px;
@@ -15,9 +12,6 @@ body {
 }
 #timeline {
   width: 556px;
-  background: white;
-  border-left: 3px solid #EAEAF0;
-  border-right: 3px solid #EAEAF0;
   margin: 0 auto;
   padding: 10px 80px;
 }
@@ -37,7 +31,9 @@ body {
 .item .meta {
     display: inline-block;
     vertical-align: top;
-    width: 250px;
+    width: 235px;
+    padding-right: 15px;
+    text-align: right;
 }
 
 .item .user .profilepic {
