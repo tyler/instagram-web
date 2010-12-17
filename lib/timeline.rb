@@ -13,15 +13,19 @@ class Timeline < Erector::Widget
           
           @items.each do |item|
             div :class => 'item' do
-              span Time.at(item['taken_at']).strftime('%I:%M%p %m/%d/%Y'), :class => 'taken_at'
-              div :class => 'user' do
-                img :src => item['user']['profile_pic_url'], :class => 'profilepic'
-                span item['user']['full_name'], :class => 'username'
-              end
+              div :class => 'meta' do
+                div :class => 'user' do
+                  img :src => item['user']['profile_pic_url'], :class => 'profilepic'
+                  span item['user']['full_name'], :class => 'username'
+                end
               
-              div do
-                image = item['image_versions'].last
-                img :src => image['url']
+                span Time.at(item['taken_at']).strftime('%I:%M%p %m/%d/%Y'), :class => 'taken_at'
+              end
+
+              div :class => 'image' do
+                a :href => item['image_versions'].last['url'] do
+                  img :src => item['image_versions'][1]['url']
+                end
               end
             end
           end

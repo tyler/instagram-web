@@ -14,16 +14,29 @@ body {
   margin-left: 5px;
 }
 #timeline {
-  width: 612px;
+  width: 556px;
   background: white;
   border-left: 3px solid #EAEAF0;
   border-right: 3px solid #EAEAF0;
   margin: 0 auto;
-  padding: 10px 100px;
+  padding: 10px 80px;
 }
 .item {
   margin-bottom: 50px;
+  overflow: hidden;
+  white-space: nowrap;
 }
+
+.item .image {
+    display: inline-block;
+    width: 306px;
+}
+.item .meta {
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+}
+
 .item .user .profilepic {
   width: 30px;
   height: 30px;
@@ -34,7 +47,6 @@ body {
   vertical-align: top;
 }
 .item .taken_at {
-  float: right;
   font-size: 0.75em;
   font-style: italic;
   color: #999;
