@@ -19,7 +19,16 @@ class Timeline < Erector::Widget
                   span item['user']['full_name'], :class => 'username'
                 end
               
-                span Time.at(item['taken_at']).strftime('%I:%M%p %m/%d/%Y'), :class => 'taken_at'
+                div Time.at(item['taken_at']).strftime('%I:%M%p %m/%d/%Y'), :class => 'taken_at'
+
+                div :class => 'comments' do
+                  item['comments'].each do |comment|
+                    div :class => 'comment' do
+                      p comment['text'], :class => 'caption'
+                      p comment['user']['full_name'], :class => 'author'
+                    end
+                  end
+                end
               end
 
               div :class => 'image' do

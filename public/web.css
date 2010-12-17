@@ -36,20 +36,41 @@
     text-align: right;
 }
 
+
+.comments {
+    padding-top: 10px;
+}
+.comment {
+    margin-top: 10px
+}
+
+.comment .caption {
+    font-style: italic;
+    color: #777;
+    margin: 0;
+}
+.comment .author {
+    color: #999;
+    font-size: 0.8em;
+    margin: 0;
+}
+.comment .author:before {
+    content: "— ";
+}
+
 .item .user .profilepic {
   width: 30px;
   height: 30px;
   margin-right: 10px;
 }
 .item .user .username {
-  font: 28px/36px Arno Pro, serif;
+  font: 28px/30px Arno Pro, serif;
   vertical-align: top;
 }
 .item .taken_at {
   font-size: 0.75em;
   font-style: italic;
   color: #999;
-  margin-top: 10px;
 }
 
 
