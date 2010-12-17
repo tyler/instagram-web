@@ -51,12 +51,15 @@ body {
   background: white;
   border: 3px solid #F0EAEA;
 }
+.login h2 {
+  font: 22px Arno Pro, serif;
+}
 .login .field {
   margin-bottom: 20px;
 }
 .login .field label {
   display: block;
-  font: 16px/16px Helvetica;
+  font: 14px/14px Helvetica;
 }
 .login .field input {
   font-size: 20px;

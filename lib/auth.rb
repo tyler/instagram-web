@@ -6,6 +6,8 @@ class Auth < Erector::Widget
       end
       body do
         form :class => 'login', :method => 'POST' do
+          h2 'Login with your Instagram Creds'
+
           div :class => 'field' do
             label 'Username', :for => 'username'
             input :type => 'text', :id => 'username', :name => 'username'
