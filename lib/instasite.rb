@@ -1,15 +1,10 @@
 class Instasite < Sinatra::Base
   get '/' do
-    if request.cookies['sessionid'] && request.cookies['ds_user_id'] && request.cookies['ds_user']
-      curl = Curl::Easy.new('https://instagr.am/api/v1/feed/timeline/')
-      curl.cookies = %w(sessionid ds_user_id ds_user).map { |k|
-        "#{k}=#{request.cookies[k]}"
-      }.join('; ')
-      curl.http_get
+    igram = Instagram.new
+    timeline = igram.timeline(request.cookies)
 
-      timeline = JSON.load(curl.body_str)
+    if timeline
       username = request.cookies['ds_user'].split(';')[0]
-
       Timeline.new({ :user => username }.merge(timeline)).to_html
     else
       Auth.new.to_html
@@ -17,22 +12,12 @@ class Instasite < Sinatra::Base
   end
 
   post '/' do
-    fields = {
-      'username' => params['username'],
-      'password' => params['password'],
-      'device_id' => '0000'
-    }.map { |k,v| Curl::PostField.content(k,v) }
+    success, *cookies = Instagram.new.auth(params['username'], params['password'])
 
-    curl = Curl::Easy.new('https://instagr.am/api/v1/accounts/login/')
-    curl.http_post(*fields)
-
-    body = JSON.load(curl.body_str)
-
-    if body['status'] == 'ok'
+    if success
       request.cookies.each { |k,_| response.delete_cookie(k) }
-
-      curl.header_str.split("\r\n").grep(/^Set-Cookie:/).each do |l|
-        k, v = l.match(/^Set-Cookie: (.*?)=(.*)$/).captures
+      cookies.each do |c|
+        k, v = c.match(/^(.*?)=(.*)$/).captures
         response.set_cookie k, v
       end
     end

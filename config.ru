@@ -7,12 +7,16 @@ require 'bundler/setup'
 # libs
 require 'sinatra'
 require 'erector'
-require 'curl'
+require 'em-http'
 require 'json'
+require 'instagram'
+require 'rack/fiber_pool'
 
 # views
 require 'auth'
 require 'timeline'
+
+use Rack::FiberPool
 
 require 'instasite'
 run Instasite.new
