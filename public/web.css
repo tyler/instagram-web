@@ -1,0 +1,64 @@
+body {
+  background: #F2F2F2;
+}
+.controls {
+  text-align: right;
+  height: 20px;
+  font: 10px/20px sans-serif;
+  margin-bottom: 30px;
+}
+.controls .username {
+  font-weight: bold;
+}
+.controls a {
+  margin-left: 5px;
+}
+#timeline {
+  width: 612px;
+  background: white;
+  border-left: 3px solid #EAEAF0;
+  border-right: 3px solid #EAEAF0;
+  margin: 0 auto;
+  padding: 10px 100px;
+}
+.item {
+  margin-bottom: 50px;
+}
+.item .user .profilepic {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.item .user .username {
+  font: 28px/36px Arno Pro, serif;
+  vertical-align: top;
+}
+.item .taken_at {
+  float: right;
+  font-size: 0.75em;
+  font-style: italic;
+  color: #999;
+  margin-top: 10px;
+}
+
+
+
+.login {
+  padding: 20px 100px;
+  width: 300px;
+
+  margin: 50px auto;
+  background: white;
+  border: 3px solid #F0EAEA;
+}
+.login .field {
+  margin-bottom: 20px;
+}
+.login .field label {
+  display: block;
+  font: 16px/16px Helvetica;
+}
+.login .field input {
+  font-size: 20px;
+  width: 290px;
+}
