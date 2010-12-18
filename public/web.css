@@ -76,26 +76,28 @@
 
 
 .login {
-  padding: 20px 100px 10px;
-  width: 300px;
-
-  margin: 50px auto;
-  background: white;
-  border: 3px solid #F0EAEA;
+    padding: 10px 100px 10px;
+    width: 315px;
+    margin: 50px auto;
+    border: 3px solid #E0E0EA;
+    background: #F6F6FF;
+    border-radius: 5px;
 }
 .login h2 {
-  font: 22px Arno Pro, serif;
+    font: 22px "Arno Pro", Georgia, "Times New Roman", Times, serif;
+    margin-bottom: 25px;
 }
 .login .field {
   margin: 10px 0;
 }
 .login .field label {
   display: block;
-  font: 14px/14px Helvetica;
+  font: 14px/14px "Palatino", Georgia, "Times New Roman", Times, serif;
+  color: #777;
 }
 .login .field input {
-  font-size: 20px;
-  width: 290px;
+  font-size: 23px;
+  width: 300px;
 }
 .login .disclaimer {
     margin-top: 15px;
