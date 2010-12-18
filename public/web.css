@@ -34,6 +34,7 @@
     width: 235px;
     padding-right: 15px;
     text-align: right;
+    white-space: normal;
 }
 
 
@@ -48,6 +49,14 @@
     font-style: italic;
     color: #777;
     margin: 0;
+}
+.comment .caption:before {
+    content: "“";
+    color: #999;
+}
+.comment .caption:after {
+    content: "”";
+    color: #999;
 }
 .comment .author {
     color: #999;
