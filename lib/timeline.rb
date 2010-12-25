@@ -8,7 +8,7 @@ class Timeline < Erector::Widget
         div :id => 'timeline' do
           div :class => 'controls' do
             span @user, :class => 'username'
-            a 'Logout', :href => '/logout'
+            a 'Logout', :href => '/logout', :class => 'logout'
           end
           
           @items.each do |item|
@@ -27,6 +27,11 @@ class Timeline < Erector::Widget
                       p comment['text'], :class => 'caption'
                       p comment['user']['full_name'], :class => 'author'
                     end
+                  end
+
+                  form :action => "/comment?id=#{item['pk']}", :method => 'POST' do
+                    input :type => 'text', :name => 'comment', :id => "comment_text-#{item['pk']}"
+                    input :type => 'submit', :value => 'Post'
                   end
                 end
               end

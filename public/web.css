@@ -1,24 +1,33 @@
 .controls {
-  text-align: right;
-  height: 20px;
-  font: 10px/20px sans-serif;
-  margin-bottom: 30px;
+    text-align: right;
+    height: 20px;
+    font: 10px/20px sans-serif;
+    margin-bottom: 30px;
+    border: 2px solid #F6F6FF;
+    border-top: none;
+    padding: 3px 10px;
+    background: #F6F6FF;
+    -webkit-box-shadow: 0px 0px 5px #556;
 }
 .controls .username {
   font-weight: bold;
+  float: left;
 }
-.controls a {
+.controls .logout {
   margin-left: 5px;
+  float: right;
 }
+body { margin: 0 }
 #timeline {
-  width: 556px;
+  width: 606px;
   margin: 0 auto;
-  padding: 10px 80px;
+  padding: 0 80px 20px;
 }
 .item {
   margin-bottom: 50px;
   overflow: hidden;
   white-space: nowrap;
+  padding: 0 25px;
 }
 
 .item .image {
@@ -66,6 +75,22 @@
 .comment .author:before {
     content: "— ";
 }
+
+.comments form {
+    position: relative;
+}
+.comments form label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #AAA;
+    font-style: italic;
+    font-size: 11px;
+}
+.comments form input[type=text] {
+    width: 190px;
+}
+
 
 .item .user .profilepic {
   width: 30px;

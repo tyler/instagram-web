@@ -1,8 +1,9 @@
+require 'yaml'
+
 class Instasite < Sinatra::Base
   get '/' do
-    igram = Instagram.new
-    timeline = igram.timeline(request.cookies)
-
+    igram = Instagram.new(request.cookies)
+    timeline = igram.timeline
     if timeline
       username = request.cookies['ds_user'].split(';')[0]
       Timeline.new({ :user => username }.merge(timeline)).to_html
@@ -23,6 +24,15 @@ class Instasite < Sinatra::Base
     end
 
     redirect '/'
+  end
+
+  post '/comment' do
+    igram = Instagram.new(request.cookies)
+    if igram.comment(params['id'].to_i, params['comment'])
+      redirect '/'
+    else
+      halt 500, "Something went quite wrong."
+    end
   end
 
   get '/logout' do
