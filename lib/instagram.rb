@@ -23,8 +23,7 @@ class Instagram
 
   def auth(u,pw)
     fiber = Fiber.current
-    request = EM::HttpRequest.new(AUTH)
-    http = request.post(:body => { :username => u, :password => pw, :device_id => '0000' })
+    http = post(AUTH, :username => u, :password => pw, :device_id => '0000')
 
     http.callback do
       data = parse_response(http.response)
@@ -46,8 +45,7 @@ class Instagram
     return false unless authenticated?
 
     fiber = Fiber.current
-    request = EM::HttpRequest.new(TIMELINE)
-    http = request.get(:head => { :cookie => cookie_header })
+    http = get(TIMELINE)
 
     http.callback do
       data = parse_response(http.response)
@@ -79,8 +77,7 @@ class Instagram
     return false unless authenticated?
 
     fiber = Fiber.current
-    request = EM::HttpRequest.new(NEWS)
-    http = request.get(:head => { :cookie => cookie_header })
+    http = get(NEWS)
 
     http.callback do
       data = parse_response(http.response)
@@ -112,8 +109,7 @@ class Instagram
     return false unless authenticated?
 
     fiber = Fiber.current
-    request = EM::HttpRequest.new(COMMENT[id])
-    http = request.post(:head => { :cookie => cookie_header }, :body => { :comment_text => text })
+    http = post(COMMENT[id], :comment_text => text)
 
     http.callback do
       data = parse_response(http.response)
@@ -128,6 +124,20 @@ class Instagram
   end
 
   private
+
+  def get(url, head={})
+    head['User-Agent'] = 'Instagram'
+    head[:cookie] = cookie_header if authenticated?
+    request = EM::HttpRequest.new(url)
+    request.get(:head => head)
+  end
+
+  def post(url, body={}, head={})
+    head['User-Agent'] = 'Instagram'
+    head[:cookie] = cookie_header if authenticated?
+    request = EM::HttpRequest.new(url)
+    request.post(:head => head, :body => body)
+  end
 
   def parse_response(data)
     JSON.load(data)
